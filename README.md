@@ -185,13 +185,15 @@ flowchart LR
 ## 编译与运行
 
 ```bash
-make
-./avoidbite        # 默认 5 只蚊子
-./avoidbite 0      # 无蚊子，最慢
-./avoidbite 20     # 过密，干扰生效
+cmake -S . -B build
+cmake --build build
+
+./build/avoidbite        # 默认 5 只蚊子
+./build/avoidbite 0      # 无蚊子，最慢
+./build/avoidbite 20     # 过密，干扰生效
 ```
 
 ```bash
-make clean   # 清理
-make run     # 编译并按默认参数运行
+cmake --build build --target clean   # 清理
+rm -rf build                          # 彻底删除构建目录
 ```
